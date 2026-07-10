@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<!-- saved from url=(0227)file:///C:/Users/Usuario/AppData/Roaming/Claude/local-agent-mode-sessions/5a551cec-69b4-4314-b767-f3bab62121d6/c0cc8e01-ba19-4b2f-8c19-603efabda9f4/local_ed8a7acf-f40e-4ba8-bb72-7c564c968a5d/outputs/invitacion_karla_romina.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Mis XV Años - Karla Romina</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* fade-in: each section starts invisible and fades up to opacity 1 the
+     moment it scrolls into view */
+  .fade-section {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1.1s ease, transform 1.1s ease;
+  }
+  .fade-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  body {
+    background-color: #3a0a0d;
+    background-image: url('damask_fondo.png');
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Cinzel', serif;
+    padding: 20px 0;
+  }
+
+  .card {
+    position: relative;
+    width: 480px;
+    max-width: 94vw;
+    aspect-ratio: 1023 / 1537;
+    background-image: url('fondo.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    color: #d9cdb8;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* photo + oval frame + roses, cropped from the user's own composite image
+     and placed at the same relative position it occupies in the reference */
+  .photo-oval {
+    position: absolute;
+    top: 9.1%;
+    left: 18.6%;
+    width: 63%;
+    z-index: 2;
+  }
+  .photo-oval img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* title + name + date + FALTAN bracket + labels + button, cropped straight
+     from the user's reference image so the engraved metallic look matches
+     exactly (this styling can't be replicated faithfully with CSS text) */
+  .titulo-conteo {
+    position: absolute;
+    top: 52.05%;
+    left: 5.87%;
+    width: 88.95%;
+    z-index: 2;
+  }
+  .titulo-conteo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* live countdown numbers, overlaid exactly where the static digits were
+     erased from the cropped image, styled to match its metallic look */
+  .countdown-live {
+    position: absolute;
+    top: 73.1%;
+    left: 22.3%;
+    width: 54.6%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(2px, 0.8vw, 6px);
+    z-index: 3;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(17px, 6.1vw, 32px);
+    letter-spacing: 1px;
+    line-height: 1;
+    color: #d8cdb9;
+    background: linear-gradient(180deg,#f5f0e2,#c9bd9f 45%,#a0947a 55%,#f5f0e2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.6));
+  }
+  .countdown-live .sep {
+    -webkit-text-fill-color: #9a8f78;
+    color: #9a8f78;
+    font-weight: 400;
+  }
+
+  /* live event year, overlaid exactly where the static "2027" digits were
+     erased from the cropped title image (event date corrected to 2026),
+     styled to match the same engraved metallic look as the countdown */
+  .date-live {
+    position: absolute;
+    top: 65.55%;
+    left: 57.7%;
+    width: 9.1%;
+    height: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(11px, 3.6vw, 18px);
+    letter-spacing: 0.5px;
+    line-height: 1;
+    color: #d8cdb9;
+    background: linear-gradient(180deg,#f5f0e2,#c9bd9f 45%,#a0947a 55%,#f5f0e2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.6));
+  }
+  .date-live2 {
+    position: absolute;
+    top: 52.45%;
+    left: 57.25%;
+    width: 9.3%;
+    height: 2.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(9px, 3vw, 15px);
+    letter-spacing: 0.5px;
+    line-height: 1;
+    color: #d8cdb9;
+    background: linear-gradient(180deg,#f5f0e2,#c9bd9f 45%,#a0947a 55%,#f5f0e2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.6));
+  }
+
+  /* invisible clickable overlay on top of the button artwork */
+  .enter-btn {
+    position: absolute;
+    top: 82.9%;
+    left: 25.4%;
+    width: 48.9%;
+    height: 6.6%;
+    z-index: 3;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .page {
+    width: 480px;
+    max-width: 94vw;
+    margin: 0 auto;
+  }
+
+  .player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 8px 14px;
+    background: rgba(0,0,0,0.35);
+    border-radius: 30px;
+    border: 1px solid rgba(169,161,144,0.4);
+  }
+
+  .play-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: #cfc3ac;
+    color: #4a0d14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-size: 14px;
+    padding: 0;
+  }
+
+  .track-info {
+    flex: 1;
+    text-align: left;
+    font-size: 11px;
+    color: #d9cdb8;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .time {
+    font-size: 10px;
+    color: #a9a190;
+    white-space: nowrap;
+  }
+
+  .vol-btn {
+    background: none;
+    border: none;
+    color: #cfc3ac;
+    font-size: 15px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  /* ---- second section: photo + menu grid, appended below the first card,
+     none of the CSS/markup above this point was touched ---- */
+  .card2 {
+    position: relative;
+    width: 480px;
+    max-width: 94vw;
+    aspect-ratio: 1023 / 1537;
+    background-image: url('fondo.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    margin-top: 24px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .photo-oval2 {
+    position: absolute;
+    top: 9.1%;
+    left: 18.6%;
+    width: 63%;
+    z-index: 2;
+  }
+  .photo-oval2 img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* title repeated here (MIS XV AÑOS / Karla Romina / date), cropped clean
+     with no cut-off, sitting right under the photo's roses */
+  .title2 {
+    position: absolute;
+    top: 37.93%;
+    left: 5.86%;
+    width: 88.87%;
+    z-index: 2;
+  }
+  .title2 img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .menu-grid-art {
+    position: absolute;
+    top: 56%;
+    left: 6.84%;
+    width: 86.33%;
+    z-index: 2;
+  }
+  .menu-grid-art img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* invisible clickable overlays, one per menu item, positioned over the
+     artwork above */
+  .menu-btn {
+    position: absolute;
+    z-index: 3;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* fixed floating control, reachable from anywhere on the page, to
+     play/pause the song without scrolling back to the embed */
+  .floating-audio-btn {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(180deg,#cfc3ac,#a0947a);
+    border: 2px solid #4a0d14;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    font-size: 20px;
+    line-height: 1;
+    color: #4a0d14;
+    padding: 0;
+  }
+  .floating-audio-btn:active {
+    transform: scale(0.94);
+  }
+
+  /* ---- photo gallery lightbox ---- */
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,4,4,0.92);
+    z-index: 10000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 70px 24px;
+  }
+  .lightbox-overlay.is-open {
+    display: flex;
+  }
+  .lightbox-overlay.single-photo .lightbox-nav,
+  .lightbox-overlay.single-photo .lightbox-thumbs-row {
+    display: none;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 2px solid #4a0d14;
+    background: #f0e8da;
+    color: #4a0d14;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.55);
+    z-index: 10002;
+  }
+  .lightbox-close:hover {
+    background: #fff;
+  }
+
+  /* ---- itinerario modal: dedicated card (instead of the generic photo
+     lightbox) so the two "VER UBICACIÓN" buttons baked into the artwork
+     can have real, precisely-positioned clickable overlays linking to
+     Google Maps ---- */
+  .itinerario-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,4,4,0.92);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .itinerario-overlay.is-open {
+    display: flex;
+  }
+  .itinerario-card {
+    position: relative;
+    width: min(900px, 92vw);
+    aspect-ratio: 950 / 983;
+    background-image: url('itinerario.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border-radius: 6px;
+  }
+  .maps-btn {
+    position: absolute;
+    top: 79.15%;
+    width: 29%;
+    height: 5.3%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .maps-btn.ceremonia { left: 12.4%; }
+  .maps-btn.recepcion { left: 58.7%; }
+
+  .lightbox-main {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+  .lightbox-main img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  }
+
+  .lightbox-counter {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.55);
+    color: #d9cdb8;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  .lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(217,205,184,0.5);
+    background: rgba(0,0,0,0.35);
+    color: #d9cdb8;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+  }
+  .lightbox-nav.prev { left: 18px; }
+  .lightbox-nav.next { right: 18px; }
+
+  .lightbox-thumbs-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 900px;
+  }
+  .lightbox-thumbs {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 4px;
+    flex: 1;
+  }
+  .lightbox-thumbs::-webkit-scrollbar { height: 6px; }
+  .lightbox-thumbs::-webkit-scrollbar-thumb { background: rgba(217,205,184,0.4); border-radius: 3px; }
+
+  .lightbox-thumbs img {
+    width: 82px;
+    height: 82px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.55;
+    border: 2px solid transparent;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+  }
+  .lightbox-thumbs img.active {
+    opacity: 1;
+    border-color: #d9cdb8;
+  }
+
+  .lightbox-thumb-nav {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(217,205,184,0.5);
+    background: rgba(0,0,0,0.35);
+    color: #d9cdb8;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .lightbox-overlay { padding: 60px 14px 16px; }
+    .lightbox-nav { width: 38px; height: 38px; font-size: 16px; }
+    .lightbox-nav.prev { left: 6px; }
+    .lightbox-nav.next { right: 6px; }
+    .lightbox-thumbs img { width: 60px; height: 60px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+<div class="card fade-section is-visible">
+
+  <!-- photo + oval frame + roses (cropped from the user's composite image) -->
+  <div class="photo-oval">
+    <img src="foto_ovalo.png" alt="Karla Romina">
+  </div>
+
+  <!-- title, name, date, FALTAN bracket, labels and button: taken directly
+       from the reference image (see note in CSS above) -->
+  <div class="titulo-conteo">
+    <img src="titulo_conteo.png" alt="Mis XV Años Karla Romina - 18 de julio de 2026">
+  </div>
+
+  <!-- live event year overlaid where the static "2027" was erased -->
+  <div class="date-live">2026</div>
+
+  <!-- live countdown numbers overlaid on the erased digit area -->
+  <div class="countdown-live">
+    <span id="days">008</span><span class="sep">:</span><span id="hours">05</span><span class="sep">:</span><span id="minutes">47</span><span class="sep">:</span><span id="seconds">03</span>
+  </div>
+
+  <button class="enter-btn" onclick="enterInvitation()" aria-label="Entrar a la invitación"></button>
+
+</div>
+
+<!-- custom-styled player bar, matching the reference design -->
+<div class="player">
+  <button class="play-btn" id="playBtn" onclick="toggleGlobalAudio()">▶</button>
+  <div class="track-info" id="trackInfo">Nuestra canción</div>
+  <div class="time" id="timeDisplay">0:00 / 4:12</div>
+  <button class="vol-btn" onclick="toggleMute()" id="volBtn">🔊</button>
+</div>
+
+<!-- ⬇⬇ CHANGE THIS LINE to point at your own mp3 file (same folder as this
+     html, or a relative/full path to it) ⬇⬇ -->
+<audio id="bgAudio" src="Taylor Swift - When Emma Falls in Love.mp3" preload="auto"></audio>
+
+<!-- ================= SECTION 2 (new, appended below — nothing above this
+     comment was changed) ================= -->
+<div class="card2 fade-section">
+
+  <!-- new photo, cropped into the same oval-frame artwork style (re-cropped
+       so it no longer bleeds into the title text below it) -->
+  <div class="photo-oval2">
+    <img src="menu_photo.png" alt="Karla Romina a caballo">
+  </div>
+
+  <!-- title repeated here, cropped clean so "Karla Romina" is never cut off -->
+  <div class="title2">
+    <img src="menu_title.png" alt="Mis XV Años Karla Romina - 18 de julio de 2026">
+  </div>
+
+  <!-- live event year overlaid where the static "2027" was erased -->
+  <div class="date-live2">2026</div>
+
+  <!-- menu grid artwork (buttons enlarged 25%, CONFIRMAR ASISTENCIA kept at
+       its natural proportions instead of stretched): MI HISTORIA, GALERÍA,
+       PADRES / PADRINOS, DRESS CODE, ITINERARIO, UBICACIÓN / CONFIRMAR
+       ASISTENCIA (VIDEO and MESA DE REGALOS removed per request) -->
+  <div class="menu-grid-art">
+    <img src="menu_icons_grid.png" alt="Menú: Mi historia, Galería, Padres, Mesa de regalos, Padrinos, Dress code, Itinerario, Ubicación, Confirmar asistencia">
+  </div>
+
+  <button class="menu-btn" style="top:56%; left:6.84%; width:21%; height:11.19%;" onclick="alert(&#39;Mi historia&#39;)" aria-label="Mi historia"></button>
+  <button class="menu-btn" style="top:56%; left:28.61%; width:21%; height:11.19%;" onclick="openGallery()" aria-label="Galería"></button>
+  <button class="menu-btn" style="top:56%; left:50.39%; width:21%; height:11.19%;" onclick="openPadres()" aria-label="Padres"></button>
+  <button class="menu-btn" style="top:56%; left:72.17%; width:21%; height:11.19%;" onclick="alert('Mesa de regalos')" aria-label="Mesa de regalos"></button>
+
+  <button class="menu-btn" style="top:67.71%; left:6.84%; width:21%; height:11.19%;" onclick="openPadrinos()" aria-label="Padrinos"></button>
+  <button class="menu-btn" style="top:67.71%; left:28.61%; width:21%; height:11.19%;" onclick="openDressCode()" aria-label="Dress code"></button>
+  <button class="menu-btn" style="top:67.71%; left:50.39%; width:21%; height:11.19%;" onclick="openItinerario()" aria-label="Itinerario"></button>
+  <button class="menu-btn" style="top:67.71%; left:72.17%; width:21%; height:11.19%;" onclick="alert(&#39;Ubicación&#39;)" aria-label="Ubicación"></button>
+
+  <button class="menu-btn" style="top:79.42%; left:25.88%; width:48.14%; height:10.61%;" onclick="confirmarAsistencia()" aria-label="Confirmar asistencia"></button>
+
+</div>
+
+</div>
+
+<!-- Fixed play/pause control, visible and clickable from anywhere on the page -->
+<button id="floatingAudioBtn" class="floating-audio-btn" onclick="toggleGlobalAudio()" aria-label="Reproducir o pausar música">▶</button>
+
+<!-- Photo gallery lightbox (opened from the GALERÍA button) -->
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <button class="lightbox-close" onclick="closeGallery()" aria-label="Cerrar galería">✕</button>
+
+  <button class="lightbox-nav prev" onclick="galleryPrev()" aria-label="Foto anterior">‹</button>
+  <button class="lightbox-nav next" onclick="galleryNext()" aria-label="Foto siguiente">›</button>
+
+  <div class="lightbox-main">
+    <img id="lightboxImage" src="" alt="Foto de Karla Romina">
+    <div class="lightbox-counter" id="lightboxCounter">1 / 5</div>
+  </div>
+
+  <div class="lightbox-thumbs-row">
+    <button class="lightbox-thumb-nav" onclick="scrollThumbs(-1)" aria-label="Ver miniaturas anteriores">‹</button>
+    <div class="lightbox-thumbs" id="lightboxThumbs"><img src="galeria1.jpg" alt="Miniatura 1"><img src="galeria2.jpg" alt="Miniatura 2"><img src="galeria3.jpg" alt="Miniatura 3"><img src="galeria4.jpg" alt="Miniatura 4"><img src="galeria5.jpg" alt="Miniatura 5"></div>
+    <button class="lightbox-thumb-nav" onclick="scrollThumbs(1)" aria-label="Ver más miniaturas">›</button>
+  </div>
+</div>
+
+<!-- Itinerario modal (opened from the ITINERARIO button): dedicated card with
+     two invisible "VER UBICACIÓN" overlays linking straight to Google Maps -->
+<div class="itinerario-overlay" id="itinerarioOverlay">
+  <div class="itinerario-card">
+    <button class="lightbox-close" onclick="closeItinerario()" aria-label="Cerrar itinerario">✕</button>
+    <button class="maps-btn ceremonia" onclick="openMaps('Parroquia de San José, Av. 2 Oriente #408, Centro, Puebla, Pue. 72000')" aria-label="Ver ubicación de la ceremonia en Google Maps"></button>
+    <button class="maps-btn recepcion" onclick="openMaps('Salón Quinta Real, Blvd. Atlixcáyotl #5500, Reserva Territorial Atlixcáyotl, Puebla, Pue. 72810')" aria-label="Ver ubicación de la recepción en Google Maps"></button>
+  </div>
+</div>
+
+<script>
+  // Countdown to event date
+  const eventDate = new Date("2026-07-18T18:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    let diff = eventDate - now;
+    if (diff < 0) diff = 0;
+
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const minutes = Math.floor((diff / (1000*60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('days').textContent = String(days).padStart(3,'0');
+    document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  const audio = document.getElementById('bgAudio');
+  const floatingBtn = document.getElementById('floatingAudioBtn');
+  const playBtn = document.getElementById('playBtn');
+  const timeDisplay = document.getElementById('timeDisplay');
+  const volBtn = document.getElementById('volBtn');
+
+  function fmtTime(sec) {
+    if (!sec || sec < 0 || !isFinite(sec)) return '0:00';
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return m + ':' + String(s).padStart(2, '0');
+  }
+
+  function updateIcons() {
+    const icon = audio.paused ? '▶' : '❚❚';
+    floatingBtn.textContent = icon;
+    playBtn.textContent = icon;
+  }
+
+  audio.addEventListener('timeupdate', () => {
+    timeDisplay.textContent = fmtTime(audio.currentTime) + ' / ' + fmtTime(audio.duration);
+  });
+  audio.addEventListener('loadedmetadata', () => {
+    timeDisplay.textContent = fmtTime(audio.currentTime) + ' / ' + fmtTime(audio.duration);
+  });
+  audio.addEventListener('play', updateIcons);
+  audio.addEventListener('pause', updateIcons);
+  audio.addEventListener('ended', updateIcons);
+
+  // Try to start the song the moment the page finishes loading. Browsers
+  // block audio-with-sound until there's been a real user gesture on the
+  // page, so this attempt will usually be rejected — that's expected.
+  window.addEventListener('load', () => {
+    audio.play().catch(() => {
+      // Autoplay was blocked. Arm a one-time fallback: the very first tap,
+      // click or key press ANYWHERE on the page starts the song, so it
+      // effectively plays "on entering" without needing to find a button.
+      const startOnFirstInteraction = () => {
+        audio.play().catch(() => {});
+        document.removeEventListener('click', startOnFirstInteraction);
+        document.removeEventListener('touchstart', startOnFirstInteraction);
+        document.removeEventListener('keydown', startOnFirstInteraction);
+      };
+      document.addEventListener('click', startOnFirstInteraction, { once: true });
+      document.addEventListener('touchstart', startOnFirstInteraction, { once: true });
+      document.addEventListener('keydown', startOnFirstInteraction, { once: true });
+    });
+  });
+
+  // Fires on the "ENTRAR A LA INVITACIÓN" click — that click IS the user
+  // gesture browsers require before audio with sound is allowed to start.
+  // It also scrolls down to section 2 (photo + menu card).
+  function enterInvitation() {
+    audio.play().catch(() => {});
+    const card2 = document.querySelector('.card2');
+    if (card2) {
+      card2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // Both the pill-bar play button and the fixed floating button call this.
+  function toggleGlobalAudio() {
+    if (audio.paused) {
+      audio.play().catch(() => {});
+    } else {
+      audio.pause();
+    }
+  }
+
+  function toggleMute() {
+    audio.muted = !audio.muted;
+    volBtn.textContent = audio.muted ? '🔇' : '🔊';
+  }
+
+  // Fade each section (.fade-section) in from opacity 0 to 1 the moment it
+  // scrolls into view, instead of showing everything at once on load.
+  const fadeSections = document.querySelectorAll('.fade-section');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  fadeSections.forEach((section) => fadeObserver.observe(section));
+
+  // ---- photo gallery lightbox ----
+  const galleryImages = [
+    'galeria1.jpg',
+    'galeria2.jpg',
+    'galeria3.jpg',
+    'galeria4.jpg',
+    'galeria5.jpg'
+  ];
+  const padresImages = [
+    'padres1.jpg'
+  ];
+  const padrinosImages = [
+    'padrinos1.jpg'
+  ];
+  const dressCodeImages = [
+    'dresscode.png'
+  ];
+  let currentImages = galleryImages;
+  let galleryIndex = 0;
+
+  const lightboxOverlay = document.getElementById('lightboxOverlay');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  const lightboxThumbs = document.getElementById('lightboxThumbs');
+
+  // (re)build the thumbnail strip for whichever image set is currently open
+  function buildThumbs() {
+    lightboxThumbs.innerHTML = '';
+    currentImages.forEach((src, i) => {
+      const thumb = document.createElement('img');
+      thumb.src = src;
+      thumb.alt = 'Miniatura ' + (i + 1);
+      thumb.addEventListener('click', () => showGalleryImage(i));
+      lightboxThumbs.appendChild(thumb);
+    });
+  }
+  buildThumbs();
+
+  function showGalleryImage(i) {
+    galleryIndex = (i + currentImages.length) % currentImages.length;
+    lightboxImage.src = currentImages[galleryIndex];
+    lightboxCounter.textContent = (galleryIndex + 1) + ' / ' + currentImages.length;
+    [...lightboxThumbs.children].forEach((t, idx) => {
+      t.classList.toggle('active', idx === galleryIndex);
+    });
+    const activeThumb = lightboxThumbs.children[galleryIndex];
+    if (activeThumb) activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }
+
+  function openLightbox(images) {
+    currentImages = images;
+    buildThumbs();
+    lightboxOverlay.classList.toggle('single-photo', images.length <= 1);
+    showGalleryImage(0);
+    lightboxOverlay.classList.add('is-open');
+  }
+
+  function openGallery() {
+    openLightbox(galleryImages);
+  }
+
+  function openPadres() {
+    openLightbox(padresImages);
+  }
+
+  function openPadrinos() {
+    openLightbox(padrinosImages);
+  }
+
+  function openDressCode() {
+    openLightbox(dressCodeImages);
+  }
+
+  // Itinerario: dedicated modal (not the generic photo lightbox) so the
+  // "VER UBICACIÓN" buttons baked into the artwork can be real clickable
+  // links to Google Maps.
+  const itinerarioOverlay = document.getElementById('itinerarioOverlay');
+
+  function openItinerario() {
+    itinerarioOverlay.classList.add('is-open');
+  }
+
+  function closeItinerario() {
+    itinerarioOverlay.classList.remove('is-open');
+  }
+
+  function openMaps(address) {
+    window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(address), '_blank');
+  }
+
+  // "CONFIRMAR ASISTENCIA" opens WhatsApp con un mensaje de RSVP prellenado
+  function confirmarAsistencia() {
+    const phone = '522225980399'; // 52 = México, sin el "1" extra que ya no usa WhatsApp
+    const text = 'Hola, confirmo mi asistencia a los XV de Romina';
+    window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(text), '_blank');
+  }
+
+  itinerarioOverlay.addEventListener('click', (e) => {
+    if (e.target === itinerarioOverlay) closeItinerario();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && itinerarioOverlay.classList.contains('is-open')) closeItinerario();
+  });
+
+  function closeGallery() {
+    lightboxOverlay.classList.remove('is-open');
+  }
+
+  function galleryNext() {
+    showGalleryImage(galleryIndex + 1);
+  }
+
+  function galleryPrev() {
+    showGalleryImage(galleryIndex - 1);
+  }
+
+  function scrollThumbs(dir) {
+    lightboxThumbs.scrollBy({ left: dir * 200, behavior: 'smooth' });
+  }
+
+  // close on background click, and arrow-key navigation while open
+  lightboxOverlay.addEventListener('click', (e) => {
+    if (e.target === lightboxOverlay) closeGallery();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!lightboxOverlay.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeGallery();
+    if (e.key === 'ArrowRight') galleryNext();
+    if (e.key === 'ArrowLeft') galleryPrev();
+  });
+</script>
+
+</body></html>
