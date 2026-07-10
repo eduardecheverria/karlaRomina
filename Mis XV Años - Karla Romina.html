@@ -5,7 +5,7 @@
 <title>Mis XV Años - Karla Romina</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -295,6 +295,82 @@
     cursor: pointer;
   }
 
+  /* ---- third section: verse card (photo + Salmo 17:8), appended below
+     section 2, same fondo.png card technique as sections 1 and 2 ---- */
+  .card3 {
+    position: relative;
+    width: 480px;
+    max-width: 94vw;
+    aspect-ratio: 1023 / 1537;
+    background-image: url('fondo.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    margin-top: 24px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .photo-oval3 {
+    position: absolute;
+    top: 3.91%;
+    left: 13.67%;
+    width: 73.24%;
+    z-index: 2;
+  }
+  .photo-oval3 img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .verse-title {
+    position: absolute;
+    top: 60.5%;
+    left: 5%;
+    width: 90%;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(26px, 8.5vw, 40px);
+    letter-spacing: 0.5px;
+    color: #d8cdb9;
+    background: linear-gradient(180deg,#f5f0e2,#c9bd9f 45%,#a0947a 55%,#f5f0e2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.6));
+  }
+
+  .verse-separator {
+    position: absolute;
+    top: 67.9%;
+    left: 17.6%;
+    width: 65.4%;
+    z-index: 2;
+  }
+  .verse-separator img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .verse-text {
+    position: absolute;
+    top: 72.6%;
+    left: 10%;
+    width: 80%;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(15px, 4.6vw, 19px);
+    line-height: 1.55;
+    color: #d9cdb8;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  }
+
   /* fixed floating control, reachable from anywhere on the page, to
      play/pause the song without scrolling back to the embed */
   .floating-audio-btn {
@@ -384,7 +460,8 @@
   }
   .itinerario-card {
     position: relative;
-    width: min(900px, 92vw);
+    width: min(900px, 92vw, calc((100vh - 48px) * 950 / 983));
+    max-height: calc(100vh - 48px);
     aspect-ratio: 950 / 983;
     background-image: url('itinerario.png');
     background-size: 100% 100%;
@@ -403,6 +480,85 @@
   }
   .maps-btn.ceremonia { left: 12.4%; }
   .maps-btn.recepcion { left: 58.7%; }
+
+  /* ---- Mesa de regalos modal ---- */
+  .regalos-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,4,4,0.92);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .regalos-overlay.is-open {
+    display: flex;
+  }
+  .regalos-card {
+    position: relative;
+    width: min(480px, 92vw);
+    background-color: #3a0a0d;
+    background-image: url('damask_fondo.png');
+    background-size: 220px;
+    border-radius: 14px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.65);
+    padding: 46px 34px 34px;
+    text-align: center;
+  }
+  .regalos-corner {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .regalos-corner.tl { top: 0; left: 0; }
+  .regalos-corner.tr { top: 0; right: 0; transform: scaleX(-1); }
+  .regalos-corner.bl { bottom: 0; left: 0; transform: scaleY(-1); }
+  .regalos-corner.br { bottom: 0; right: 0; transform: scale(-1,-1); }
+  .regalos-icon {
+    width: 78px;
+    height: auto;
+    display: block;
+    margin: 0 auto 12px;
+    position: relative;
+    z-index: 3;
+  }
+  .regalos-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(20px, 5.5vw, 26px);
+    letter-spacing: 1.5px;
+    color: #d8cdb9;
+    background: linear-gradient(180deg,#f5f0e2,#c9bd9f 45%,#a0947a 55%,#f5f0e2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.6));
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 3;
+  }
+  .regalos-text {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(13px, 3.6vw, 15px);
+    line-height: 1.9;
+    color: #d9cdb8;
+    max-width: 92%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+  }
+  .regalos-bottom-orn {
+    width: 68%;
+    max-width: 260px;
+    height: auto;
+    display: block;
+    margin: 22px auto 0;
+    position: relative;
+    z-index: 3;
+  }
 
   .lightbox-main {
     position: relative;
@@ -583,14 +739,38 @@
   <button class="menu-btn" style="top:56%; left:6.84%; width:21%; height:11.19%;" onclick="alert(&#39;Mi historia&#39;)" aria-label="Mi historia"></button>
   <button class="menu-btn" style="top:56%; left:28.61%; width:21%; height:11.19%;" onclick="openGallery()" aria-label="Galería"></button>
   <button class="menu-btn" style="top:56%; left:50.39%; width:21%; height:11.19%;" onclick="openPadres()" aria-label="Padres"></button>
-  <button class="menu-btn" style="top:56%; left:72.17%; width:21%; height:11.19%;" onclick="alert('Mesa de regalos')" aria-label="Mesa de regalos"></button>
+  <button class="menu-btn" style="top:56%; left:72.17%; width:21%; height:11.19%;" onclick="openRegalos()" aria-label="Mesa de regalos"></button>
 
   <button class="menu-btn" style="top:67.71%; left:6.84%; width:21%; height:11.19%;" onclick="openPadrinos()" aria-label="Padrinos"></button>
   <button class="menu-btn" style="top:67.71%; left:28.61%; width:21%; height:11.19%;" onclick="openDressCode()" aria-label="Dress code"></button>
   <button class="menu-btn" style="top:67.71%; left:50.39%; width:21%; height:11.19%;" onclick="openItinerario()" aria-label="Itinerario"></button>
-  <button class="menu-btn" style="top:67.71%; left:72.17%; width:21%; height:11.19%;" onclick="alert(&#39;Ubicación&#39;)" aria-label="Ubicación"></button>
+  <button class="menu-btn" style="top:67.71%; left:72.17%; width:21%; height:11.19%;" onclick="openItinerario()" aria-label="Ubicación"></button>
 
   <button class="menu-btn" style="top:79.42%; left:25.88%; width:48.14%; height:10.61%;" onclick="confirmarAsistencia()" aria-label="Confirmar asistencia"></button>
+
+</div>
+
+<!-- ================= SECTION 3 (new, appended below section 2 — nothing
+     above this comment was changed): verse card with the violin/sunset
+     photo and Salmo 17:8 ================= -->
+<div class="card3 fade-section">
+
+  <div class="photo-oval3">
+    <img src="photo_oval3.png" alt="Silueta tocando violín al atardecer">
+  </div>
+
+  <div class="verse-title">Salmo 17:8</div>
+
+  <div class="verse-separator">
+    <img src="separator3.png" alt="">
+  </div>
+
+  <div class="verse-text">
+    Guárdame como a la niña<br>
+    de tus ojos;<br>
+    escóndeme bajo la sombra<br>
+    de tus días
+  </div>
 
 </div>
 
@@ -625,6 +805,21 @@
     <button class="lightbox-close" onclick="closeItinerario()" aria-label="Cerrar itinerario">✕</button>
     <button class="maps-btn ceremonia" onclick="openMaps('Parroquia de San José, Av. 2 Oriente #408, Centro, Puebla, Pue. 72000')" aria-label="Ver ubicación de la ceremonia en Google Maps"></button>
     <button class="maps-btn recepcion" onclick="openMaps('Salón Quinta Real, Blvd. Atlixcáyotl #5500, Reserva Territorial Atlixcáyotl, Puebla, Pue. 72810')" aria-label="Ver ubicación de la recepción en Google Maps"></button>
+  </div>
+</div>
+
+<!-- Mesa de regalos modal -->
+<div class="regalos-overlay" id="regalosOverlay">
+  <div class="regalos-card">
+    <img class="regalos-corner tl" src="corner_tl.png" alt="">
+    <img class="regalos-corner tr" src="corner_tl.png" alt="">
+    <img class="regalos-corner bl" src="corner_tl.png" alt="">
+    <img class="regalos-corner br" src="corner_tl.png" alt="">
+    <button class="lightbox-close" onclick="closeRegalos()" aria-label="Cerrar mesa de regalos" style="position:absolute; top:14px; right:14px;">✕</button>
+    <img class="regalos-icon" src="gift_icon_regalos.png" alt="Regalo">
+    <div class="regalos-title">MESA DE REGALOS</div>
+    <p class="regalos-text">Tu presencia es el regalo más bonito, pero si deseas obsequiarme algo, puede ser en efectivo en la lluvia de sobres que tengo preparada para el día del evento.</p>
+    <img class="regalos-bottom-orn" src="bottom_medallion.png" alt="">
   </div>
 </div>
 
@@ -840,6 +1035,24 @@
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && itinerarioOverlay.classList.contains('is-open')) closeItinerario();
+  });
+
+  // Mesa de regalos modal
+  const regalosOverlay = document.getElementById('regalosOverlay');
+
+  function openRegalos() {
+    regalosOverlay.classList.add('is-open');
+  }
+
+  function closeRegalos() {
+    regalosOverlay.classList.remove('is-open');
+  }
+
+  regalosOverlay.addEventListener('click', (e) => {
+    if (e.target === regalosOverlay) closeRegalos();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && regalosOverlay.classList.contains('is-open')) closeRegalos();
   });
 
   function closeGallery() {
