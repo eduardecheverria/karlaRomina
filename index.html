@@ -135,17 +135,17 @@
   }
   .date-live2 {
     position: absolute;
-    top: 85.55%;
-    left: 57.77%;
-    width: 10.45%;
-    height: 14.71%;
+    top: 83.18%;
+    left: 74.51%;
+    width: 15.38%;
+    height: 16.82%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 3;
     font-family: 'Cinzel', serif;
     font-weight: 700;
-    font-size: clamp(9px, 3vw, 15px);
+    font-size: clamp(12px, 4.05vw, 20px);
     letter-spacing: 0.5px;
     line-height: 1;
     color: #d8cdb9;
@@ -270,6 +270,21 @@
     box-sizing: border-box;
     color: #d9cdb8;
   }
+  /* MI HISTORIA: photo background with a dark overlay so the text stays
+     readable on top of it */
+  .info-card.mi-historia {
+    background-image: url('fondohistoria_crop.jpg');
+    background-size: cover;
+    background-position: center 25%;
+    overflow: hidden;
+  }
+  .info-card.mi-historia::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20,4,6,0.5), rgba(20,4,6,0.78));
+    z-index: 1;
+  }
   .info-corner {
     position: absolute;
     width: 90px;
@@ -327,22 +342,18 @@
   /* GALERÍA: simple responsive photo grid, tap a photo to view it full size
      in a new tab (no more lightbox) */
   .info-gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     margin-top: 6px;
     position: relative;
     z-index: 3;
   }
-  .info-gallery-grid a:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-  }
   .info-gallery-grid img {
     width: 100%;
-    height: 130px;
-    object-fit: cover;
-    border-radius: 8px;
+    height: auto;
     display: block;
+    border-radius: 8px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.5);
   }
 
@@ -373,6 +384,18 @@
     color: #cfc3ac;
   }
 
+  /* elegant script names, listed under a photo (MIS PADRES / MIS PADRINOS) */
+  .info-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(22px, 6.5vw, 28px);
+    line-height: 1.7;
+    color: #f0e6d2;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    margin-top: 16px;
+    position: relative;
+    z-index: 3;
+  }
+
   /* DRESS CODE: single reference image inline */
   .info-photo-single {
     margin-top: 6px;
@@ -392,7 +415,7 @@
     position: relative;
     width: 100%;
     aspect-ratio: 950 / 983;
-    background-image: url('itinerario.png');
+    background-image: url('itinerario_v6.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 6px;
@@ -432,6 +455,21 @@
   }
   .whatsapp-inline-btn:active {
     transform: scale(0.97);
+  }
+
+  /* ---- closing "¡Con Cariño! Karla Romina" card, second-to-last on the
+     page (right before CONFIRMAR ASISTENCIA) ---- */
+  .card-carino {
+    position: relative;
+    width: 480px;
+    max-width: 94vw;
+    aspect-ratio: 1123 / 1401;
+    background-image: url('con_carino.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    margin: 24px auto 0;
+    box-sizing: border-box;
   }
 
   /* ---- third section: verse card (photo + Salmo 17:8), appended below
@@ -584,7 +622,7 @@
 
   <!-- title first (MIS XV AÑOS / Karla Romina / date) -->
   <div class="title2">
-    <img src="menu_title.png" alt="Mis XV Años Karla Romina - 18 de julio de 2026">
+    <img src="menu_title2.png" alt="Mis XV Años Karla Romina - 18 de julio de 2026">
   </div>
 
   <!-- live event year overlaid where the static "2027" was erased -->
@@ -596,14 +634,12 @@
      directly on the page, one ornate .info-card per item, in the same
      order the menu used to list them ================= -->
 
-<div class="info-card fade-section">
+<div class="info-card mi-historia fade-section">
   <img class="info-corner tl" src="corner_tl.png" alt="">
   <img class="info-corner tr" src="corner_tl.png" alt="">
   <img class="info-corner bl" src="corner_tl.png" alt="">
   <img class="info-corner br" src="corner_tl.png" alt="">
-  <img class="info-icon" src="icon_mi_historia.png" alt="">
-  <div class="info-title">MI HISTORIA</div>
-  <p class="info-text">Desde niña soñé con este día. Gracias a todos los que han sido parte de mi historia y hoy me acompañan a celebrar mis XV años.</p>
+  <p class="info-text">Esta es una etapa muy importante para mí, sobre todo en mi vida, y doy gracias a Dios por permitirme llegar hasta aquí. De igual manera, agradezco a mis padres y padrinos por el apoyo y amor incondicional que siempre me han brindado. Por eso, me gustaría celebrar este momento tan importante en compañía de quienes me aprecian y han estado para mí hasta el día de hoy.<br><br>¡Espero contar contigo para celebrar esta nueva etapa de mi vida! ★<br><br>K.R.B.H.</p>
 </div>
 
 <div class="info-card fade-section">
@@ -628,16 +664,41 @@
   <img class="info-corner bl" src="corner_tl.png" alt="">
   <img class="info-corner br" src="corner_tl.png" alt="">
   <img class="info-icon" src="icon_padres_padrinos.png" alt="">
-  <div class="info-title">PADRES Y PADRINOS</div>
-  <div class="info-photo-pair">
-    <figure>
-      <a href="padres1.jpg" target="_blank"><img src="padres1.jpg" alt="Padres"></a>
-      <figcaption>PADRES</figcaption>
-    </figure>
-    <figure>
-      <a href="padrinos1.jpg" target="_blank"><img src="padrinos1.jpg" alt="Padrinos"></a>
-      <figcaption>PADRINOS</figcaption>
-    </figure>
+  <div class="info-title">MIS PADRES</div>
+  <div class="info-photo-single">
+    <a href="padres1.jpg" target="_blank"><img src="padres1.jpg" alt="Padres"></a>
+  </div>
+  <div class="info-names">
+    Carlos Alberto Badillo Sánchez<br>
+    Emma Hernández Tomás
+  </div>
+</div>
+
+<div class="info-card fade-section">
+  <img class="info-corner tl" src="corner_tl.png" alt="">
+  <img class="info-corner tr" src="corner_tl.png" alt="">
+  <img class="info-corner bl" src="corner_tl.png" alt="">
+  <img class="info-corner br" src="corner_tl.png" alt="">
+  <img class="info-icon" src="icon_padres_padrinos.png" alt="">
+  <div class="info-title">HERMANOS</div>
+  <div class="info-photo-single">
+    <a href="hermanos.jpeg" target="_blank"><img src="hermanos.jpeg" alt="Hermanos"></a>
+  </div>
+</div>
+
+<div class="info-card fade-section">
+  <img class="info-corner tl" src="corner_tl.png" alt="">
+  <img class="info-corner tr" src="corner_tl.png" alt="">
+  <img class="info-corner bl" src="corner_tl.png" alt="">
+  <img class="info-corner br" src="corner_tl.png" alt="">
+  <img class="info-icon" src="icon_padres_padrinos.png" alt="">
+  <div class="info-title">MIS PADRINOS</div>
+  <div class="info-photo-single">
+    <a href="padrinos1.jpg" target="_blank"><img src="padrinos1.jpg" alt="Padrinos"></a>
+  </div>
+  <div class="info-names">
+    Heli Ivan Martinez Duran<br>
+    Patricia Hernández Tomás
   </div>
 </div>
 
@@ -670,10 +731,10 @@
   <img class="info-corner tr" src="corner_tl.png" alt="">
   <img class="info-corner bl" src="corner_tl.png" alt="">
   <img class="info-corner br" src="corner_tl.png" alt="">
-  <img class="info-icon" src="icon_dresscode.png" alt="">
+  <img class="info-icon" src="icon_dresscode_white.png" alt="">
   <div class="info-title">DRESS CODE</div>
   <div class="info-photo-single">
-    <a href="dresscode.png" target="_blank"><img src="dresscode.png" alt="Dress code"></a>
+    <a href="dresscode_clean.png" target="_blank"><img src="dresscode_clean.png" alt="Dress code"></a>
   </div>
 </div>
 
@@ -685,8 +746,8 @@
   <img class="info-icon" src="icon_itinerario.png" alt="">
   <div class="info-title">ITINERARIO Y UBICACIÓN</div>
   <div class="itinerario-inline">
-    <button class="maps-btn ceremonia" onclick="openMaps('Parroquia de San José, Av. 2 Oriente #408, Centro, Puebla, Pue. 72000')" aria-label="Ver ubicación de la ceremonia en Google Maps"></button>
-    <button class="maps-btn recepcion" onclick="openMaps('Salón Quinta Real, Blvd. Atlixcáyotl #5500, Reserva Territorial Atlixcáyotl, Puebla, Pue. 72810')" aria-label="Ver ubicación de la recepción en Google Maps"></button>
+    <button class="maps-btn ceremonia" onclick="openMaps('Catedral Basílica de Puebla, Puebla, Pue.')" aria-label="Ver ubicación de la ceremonia en Google Maps"></button>
+    <button class="maps-btn recepcion" onclick="openMaps('Salón Gad, Puebla, Pue.')" aria-label="Ver ubicación de la recepción en Google Maps"></button>
   </div>
 </div>
 
@@ -699,16 +760,6 @@
   <div class="info-title">MESA DE REGALOS</div>
   <p class="info-text">Tu presencia es el regalo más bonito, pero si deseas obsequiarme algo, puede ser en efectivo en la lluvia de sobres que tengo preparada para el día del evento.</p>
   <img class="info-bottom-orn" src="bottom_medallion.png" alt="">
-</div>
-
-<div class="info-card fade-section">
-  <img class="info-corner tl" src="corner_tl.png" alt="">
-  <img class="info-corner tr" src="corner_tl.png" alt="">
-  <img class="info-corner bl" src="corner_tl.png" alt="">
-  <img class="info-corner br" src="corner_tl.png" alt="">
-  <div class="info-title">CONFIRMAR ASISTENCIA</div>
-  <p class="info-text">Nos encantaría contar contigo. Confirma tu asistencia dándole click al botón:</p>
-  <button class="whatsapp-inline-btn" onclick="confirmarAsistencia()">📩 CONFIRMAR POR WHATSAPP</button>
 </div>
 
 <!-- ================= SECTION 3 (new, appended below section 2 — nothing
@@ -733,6 +784,20 @@
     de tus días
   </div>
 
+</div>
+
+<!-- Closing "¡Con Cariño! Karla Romina" card, second-to-last on the page -->
+<div class="card-carino fade-section"></div>
+
+<!-- CONFIRMAR ASISTENCIA moved here so it's the very last card on the page -->
+<div class="info-card fade-section">
+  <img class="info-corner tl" src="corner_tl.png" alt="">
+  <img class="info-corner tr" src="corner_tl.png" alt="">
+  <img class="info-corner bl" src="corner_tl.png" alt="">
+  <img class="info-corner br" src="corner_tl.png" alt="">
+  <div class="info-title">CONFIRMAR ASISTENCIA</div>
+  <p class="info-text">Nos encantaría contar contigo. Confirma tu asistencia dándole click al botón:</p>
+  <button class="whatsapp-inline-btn" onclick="confirmarAsistencia()">📩 CONFIRMAR POR WHATSAPP</button>
 </div>
 
 </div>
