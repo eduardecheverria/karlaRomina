@@ -135,10 +135,10 @@
   }
   .date-live2 {
     position: absolute;
-    top: 52.45%;
-    left: 57.25%;
-    width: 9.3%;
-    height: 2.5%;
+    top: 85.55%;
+    left: 57.77%;
+    width: 10.45%;
+    height: 14.71%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -228,42 +228,23 @@
     flex-shrink: 0;
   }
 
-  /* ---- second section: photo + menu grid, appended below the first card,
-     none of the CSS/markup above this point was touched ---- */
+  /* ---- second section: just the title banner now (the menu grid is gone —
+     every item's content is embedded directly on the page below as its own
+     .info-card) ---- */
   .card2 {
-    position: relative;
     width: 480px;
     max-width: 94vw;
-    aspect-ratio: 1023 / 1537;
-    background-image: url('fondo.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-    margin-top: 24px;
+    margin: 24px auto 0;
     box-sizing: border-box;
-    overflow: hidden;
   }
 
-  .photo-oval2 {
-    position: absolute;
-    top: 9.1%;
-    left: 18.6%;
-    width: 63%;
-    z-index: 2;
-  }
-  .photo-oval2 img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* title repeated here (MIS XV AÑOS / Karla Romina / date), cropped clean
-     with no cut-off, sitting right under the photo's roses */
+  /* title (MIS XV AÑOS / Karla Romina / date), sitting directly on the
+     page's red damask background — no fondo.png frame needed since the
+     image itself is a transparent engraved-text crop */
   .title2 {
-    position: absolute;
-    top: 37.93%;
-    left: 5.86%;
+    position: relative;
     width: 88.87%;
+    margin: 0 auto;
     z-index: 2;
   }
   .title2 img {
@@ -272,27 +253,185 @@
     display: block;
   }
 
-  .menu-grid-art {
-    position: absolute;
-    top: 56%;
-    left: 6.84%;
-    width: 86.33%;
-    z-index: 2;
+  /* ---- inline info sections: every menu item's content now lives directly
+     on the page (no more popup/lightbox), each in its own ornate card ---- */
+  .info-card {
+    position: relative;
+    width: 480px;
+    max-width: 94vw;
+    margin: 24px auto 0;
+    background-color: #3a0a0d;
+    background-image: url('damask_fondo.png');
+    background-size: 220px;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    padding: 46px 30px 34px;
+    text-align: center;
+    box-sizing: border-box;
+    color: #d9cdb8;
   }
-  .menu-grid-art img {
-    width: 100%;
+  .info-corner {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .info-corner.tl { top: 0; left: 0; }
+  .info-corner.tr { top: 0; right: 0; transform: scaleX(-1); }
+  .info-corner.bl { bottom: 0; left: 0; transform: scaleY(-1); }
+  .info-corner.br { bottom: 0; right: 0; transform: scale(-1,-1); }
+  .info-icon {
+    width: 70px;
     height: auto;
     display: block;
+    margin: 0 auto 12px;
+    position: relative;
+    z-index: 3;
+  }
+  .info-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(20px, 5.5vw, 26px);
+    letter-spacing: 1.5px;
+    color: #d8cdb9;
+    background: linear-gradient(180deg,#f5f0e2,#c9bd9f 45%,#a0947a 55%,#f5f0e2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.6));
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 3;
+  }
+  .info-text {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(13px, 3.6vw, 15px);
+    line-height: 1.9;
+    color: #d9cdb8;
+    max-width: 92%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+  }
+  .info-bottom-orn {
+    width: 68%;
+    max-width: 260px;
+    height: auto;
+    display: block;
+    margin: 22px auto 0;
+    position: relative;
+    z-index: 3;
   }
 
-  /* invisible clickable overlays, one per menu item, positioned over the
-     artwork above */
-  .menu-btn {
-    position: absolute;
+  /* GALERÍA: simple responsive photo grid, tap a photo to view it full size
+     in a new tab (no more lightbox) */
+  .info-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 6px;
+    position: relative;
     z-index: 3;
+  }
+  .info-gallery-grid a:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+  .info-gallery-grid img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+  }
+
+  /* PADRES Y PADRINOS: two photos side by side with small captions */
+  .info-photo-pair {
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+    position: relative;
+    z-index: 3;
+  }
+  .info-photo-pair figure {
+    flex: 1;
+    margin: 0;
+  }
+  .info-photo-pair img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+  }
+  .info-photo-pair figcaption {
+    margin-top: 8px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: #cfc3ac;
+  }
+
+  /* DRESS CODE: single reference image inline */
+  .info-photo-single {
+    margin-top: 6px;
+    position: relative;
+    z-index: 3;
+  }
+  .info-photo-single img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+  }
+
+  /* ITINERARIO Y UBICACIÓN: the ceremony/reception card, now embedded inline
+     instead of in a popup, keeping the two real "VER UBICACIÓN" links */
+  .itinerario-inline {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 950 / 983;
+    background-image: url('itinerario.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-radius: 6px;
+    margin-top: 6px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+  }
+  .maps-btn {
+    position: absolute;
+    top: 79.15%;
+    width: 29%;
+    height: 5.3%;
     background: transparent;
     border: none;
     cursor: pointer;
+  }
+  .maps-btn.ceremonia { left: 12.4%; }
+  .maps-btn.recepcion { left: 58.7%; }
+
+  /* CONFIRMAR ASISTENCIA: inline WhatsApp button */
+  .whatsapp-inline-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 14px 28px;
+    background: linear-gradient(180deg,#cfc3ac,#a0947a);
+    border: 2px solid #4a0d14;
+    border-radius: 30px;
+    color: #4a0d14;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-size: 15px;
+    position: relative;
+    z-index: 3;
+  }
+  .whatsapp-inline-btn:active {
+    transform: scale(0.97);
   }
 
   /* ---- third section: verse card (photo + Salmo 17:8), appended below
@@ -397,277 +536,6 @@
     transform: scale(0.94);
   }
 
-  /* ---- photo gallery lightbox ---- */
-  .lightbox-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(10,4,4,0.92);
-    z-index: 10000;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 70px 70px 24px;
-  }
-  .lightbox-overlay.is-open {
-    display: flex;
-  }
-  .lightbox-overlay.single-photo .lightbox-nav,
-  .lightbox-overlay.single-photo .lightbox-thumbs-row {
-    display: none;
-  }
-
-  .lightbox-close {
-    position: absolute;
-    top: 22px;
-    right: 22px;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    border: 2px solid #4a0d14;
-    background: #f0e8da;
-    color: #4a0d14;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.55);
-    z-index: 10002;
-  }
-  .lightbox-close:hover {
-    background: #fff;
-  }
-
-  /* ---- itinerario modal: dedicated card (instead of the generic photo
-     lightbox) so the two "VER UBICACIÓN" buttons baked into the artwork
-     can have real, precisely-positioned clickable overlays linking to
-     Google Maps ---- */
-  .itinerario-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(10,4,4,0.92);
-    z-index: 10000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-  }
-  .itinerario-overlay.is-open {
-    display: flex;
-  }
-  .itinerario-card {
-    position: relative;
-    width: min(900px, 92vw, calc((100vh - 48px) * 950 / 983));
-    max-height: calc(100vh - 48px);
-    aspect-ratio: 950 / 983;
-    background-image: url('itinerario.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-    border-radius: 6px;
-  }
-  .maps-btn {
-    position: absolute;
-    top: 79.15%;
-    width: 29%;
-    height: 5.3%;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  .maps-btn.ceremonia { left: 12.4%; }
-  .maps-btn.recepcion { left: 58.7%; }
-
-  /* ---- Mesa de regalos modal ---- */
-  .regalos-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(10,4,4,0.92);
-    z-index: 10000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-  }
-  .regalos-overlay.is-open {
-    display: flex;
-  }
-  .regalos-card {
-    position: relative;
-    width: min(480px, 92vw);
-    background-color: #3a0a0d;
-    background-image: url('damask_fondo.png');
-    background-size: 220px;
-    border-radius: 14px;
-    box-shadow: 0 10px 50px rgba(0,0,0,0.65);
-    padding: 46px 34px 34px;
-    text-align: center;
-  }
-  .regalos-corner {
-    position: absolute;
-    width: 90px;
-    height: 90px;
-    z-index: 2;
-    pointer-events: none;
-  }
-  .regalos-corner.tl { top: 0; left: 0; }
-  .regalos-corner.tr { top: 0; right: 0; transform: scaleX(-1); }
-  .regalos-corner.bl { bottom: 0; left: 0; transform: scaleY(-1); }
-  .regalos-corner.br { bottom: 0; right: 0; transform: scale(-1,-1); }
-  .regalos-icon {
-    width: 78px;
-    height: auto;
-    display: block;
-    margin: 0 auto 12px;
-    position: relative;
-    z-index: 3;
-  }
-  .regalos-title {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: clamp(20px, 5.5vw, 26px);
-    letter-spacing: 1.5px;
-    color: #d8cdb9;
-    background: linear-gradient(180deg,#f5f0e2,#c9bd9f 45%,#a0947a 55%,#f5f0e2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.6));
-    margin-bottom: 18px;
-    position: relative;
-    z-index: 3;
-  }
-  .regalos-text {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(13px, 3.6vw, 15px);
-    line-height: 1.9;
-    color: #d9cdb8;
-    max-width: 92%;
-    margin: 0 auto;
-    position: relative;
-    z-index: 3;
-  }
-  .regalos-bottom-orn {
-    width: 68%;
-    max-width: 260px;
-    height: auto;
-    display: block;
-    margin: 22px auto 0;
-    position: relative;
-    z-index: 3;
-  }
-
-  .lightbox-main {
-    position: relative;
-    max-width: 900px;
-    width: 100%;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 0;
-  }
-  .lightbox-main img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 6px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-  }
-
-  .lightbox-counter {
-    position: absolute;
-    left: 50%;
-    bottom: 14px;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.55);
-    color: #d9cdb8;
-    font-size: 12px;
-    letter-spacing: 1px;
-    padding: 5px 14px;
-    border-radius: 20px;
-  }
-
-  .lightbox-nav {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(217,205,184,0.5);
-    background: rgba(0,0,0,0.35);
-    color: #d9cdb8;
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10001;
-  }
-  .lightbox-nav.prev { left: 18px; }
-  .lightbox-nav.next { right: 18px; }
-
-  .lightbox-thumbs-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 16px;
-    width: 100%;
-    max-width: 900px;
-  }
-  .lightbox-thumbs {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 4px;
-    flex: 1;
-  }
-  .lightbox-thumbs::-webkit-scrollbar { height: 6px; }
-  .lightbox-thumbs::-webkit-scrollbar-thumb { background: rgba(217,205,184,0.4); border-radius: 3px; }
-
-  .lightbox-thumbs img {
-    width: 82px;
-    height: 82px;
-    object-fit: cover;
-    border-radius: 6px;
-    cursor: pointer;
-    opacity: 0.55;
-    border: 2px solid transparent;
-    flex-shrink: 0;
-    transition: opacity 0.2s ease, border-color 0.2s ease;
-  }
-  .lightbox-thumbs img.active {
-    opacity: 1;
-    border-color: #d9cdb8;
-  }
-
-  .lightbox-thumb-nav {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(217,205,184,0.5);
-    background: rgba(0,0,0,0.35);
-    color: #d9cdb8;
-    font-size: 14px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  @media (max-width: 640px) {
-    .lightbox-overlay { padding: 60px 14px 16px; }
-    .lightbox-nav { width: 38px; height: 38px; font-size: 16px; }
-    .lightbox-nav.prev { left: 6px; }
-    .lightbox-nav.next { right: 6px; }
-    .lightbox-thumbs img { width: 60px; height: 60px; }
-  }
 </style>
 </head>
 <body>
@@ -714,13 +582,7 @@
      comment was changed) ================= -->
 <div class="card2 fade-section">
 
-  <!-- new photo, cropped into the same oval-frame artwork style (re-cropped
-       so it no longer bleeds into the title text below it) -->
-  <div class="photo-oval2">
-    <img src="menu_photo.png" alt="Karla Romina a caballo">
-  </div>
-
-  <!-- title repeated here, cropped clean so "Karla Romina" is never cut off -->
+  <!-- title first (MIS XV AÑOS / Karla Romina / date) -->
   <div class="title2">
     <img src="menu_title.png" alt="Mis XV Años Karla Romina - 18 de julio de 2026">
   </div>
@@ -728,26 +590,111 @@
   <!-- live event year overlaid where the static "2027" was erased -->
   <div class="date-live2">2026</div>
 
-  <!-- menu grid artwork (buttons enlarged 25%, CONFIRMAR ASISTENCIA kept at
-       its natural proportions instead of stretched): MI HISTORIA, GALERÍA,
-       PADRES / PADRINOS, DRESS CODE, ITINERARIO, UBICACIÓN / CONFIRMAR
-       ASISTENCIA (VIDEO and MESA DE REGALOS removed per request) -->
-  <div class="menu-grid-art">
-    <img src="menu_icons_grid.png" alt="Menú: Mi historia, Galería, Padres, Mesa de regalos, Padrinos, Dress code, Itinerario, Ubicación, Confirmar asistencia">
+</div>
+
+<!-- ================= Everything that used to open in a popup now lives
+     directly on the page, one ornate .info-card per item, in the same
+     order the menu used to list them ================= -->
+
+<div class="info-card fade-section">
+  <img class="info-corner tl" src="corner_tl.png" alt="">
+  <img class="info-corner tr" src="corner_tl.png" alt="">
+  <img class="info-corner bl" src="corner_tl.png" alt="">
+  <img class="info-corner br" src="corner_tl.png" alt="">
+  <img class="info-icon" src="icon_mi_historia.png" alt="">
+  <div class="info-title">MI HISTORIA</div>
+  <p class="info-text">Desde niña soñé con este día. Gracias a todos los que han sido parte de mi historia y hoy me acompañan a celebrar mis XV años.</p>
+</div>
+
+<div class="info-card fade-section">
+  <img class="info-corner tl" src="corner_tl.png" alt="">
+  <img class="info-corner tr" src="corner_tl.png" alt="">
+  <img class="info-corner bl" src="corner_tl.png" alt="">
+  <img class="info-corner br" src="corner_tl.png" alt="">
+  <img class="info-icon" src="icon_galeria.png" alt="">
+  <div class="info-title">GALERÍA</div>
+  <div class="info-gallery-grid">
+    <a href="galeria1.jpg" target="_blank"><img src="galeria1.jpg" alt="Foto 1"></a>
+    <a href="galeria2.jpg" target="_blank"><img src="galeria2.jpg" alt="Foto 2"></a>
+    <a href="galeria3.jpg" target="_blank"><img src="galeria3.jpg" alt="Foto 3"></a>
+    <a href="galeria4.jpg" target="_blank"><img src="galeria4.jpg" alt="Foto 4"></a>
+    <a href="galeria5.jpg" target="_blank"><img src="galeria5.jpg" alt="Foto 5"></a>
   </div>
+</div>
 
-  <button class="menu-btn" style="top:56%; left:6.84%; width:21%; height:11.19%;" onclick="alert(&#39;Mi historia&#39;)" aria-label="Mi historia"></button>
-  <button class="menu-btn" style="top:56%; left:28.61%; width:21%; height:11.19%;" onclick="openGallery()" aria-label="Galería"></button>
-  <button class="menu-btn" style="top:56%; left:50.39%; width:21%; height:11.19%;" onclick="openPadres()" aria-label="Padres"></button>
-  <button class="menu-btn" style="top:56%; left:72.17%; width:21%; height:11.19%;" onclick="openRegalos()" aria-label="Mesa de regalos"></button>
+<div class="info-card fade-section">
+  <img class="info-corner tl" src="corner_tl.png" alt="">
+  <img class="info-corner tr" src="corner_tl.png" alt="">
+  <img class="info-corner bl" src="corner_tl.png" alt="">
+  <img class="info-corner br" src="corner_tl.png" alt="">
+  <img class="info-icon" src="_new_video_icon.png" alt="">
+  <div class="info-title">VIDEO</div>
+  <p class="info-text">Video próximamente.</p>
+</div>
 
-  <button class="menu-btn" style="top:67.71%; left:6.84%; width:21%; height:11.19%;" onclick="openPadrinos()" aria-label="Padrinos"></button>
-  <button class="menu-btn" style="top:67.71%; left:28.61%; width:21%; height:11.19%;" onclick="openDressCode()" aria-label="Dress code"></button>
-  <button class="menu-btn" style="top:67.71%; left:50.39%; width:21%; height:11.19%;" onclick="openItinerario()" aria-label="Itinerario"></button>
-  <button class="menu-btn" style="top:67.71%; left:72.17%; width:21%; height:11.19%;" onclick="openItinerario()" aria-label="Ubicación"></button>
+<div class="info-card fade-section">
+  <img class="info-corner tl" src="corner_tl.png" alt="">
+  <img class="info-corner tr" src="corner_tl.png" alt="">
+  <img class="info-corner bl" src="corner_tl.png" alt="">
+  <img class="info-corner br" src="corner_tl.png" alt="">
+  <img class="info-icon" src="icon_padres_padrinos.png" alt="">
+  <div class="info-title">PADRES Y PADRINOS</div>
+  <div class="info-photo-pair">
+    <figure>
+      <a href="padres1.jpg" target="_blank"><img src="padres1.jpg" alt="Padres"></a>
+      <figcaption>PADRES</figcaption>
+    </figure>
+    <figure>
+      <a href="padrinos1.jpg" target="_blank"><img src="padrinos1.jpg" alt="Padrinos"></a>
+      <figcaption>PADRINOS</figcaption>
+    </figure>
+  </div>
+</div>
 
-  <button class="menu-btn" style="top:79.42%; left:25.88%; width:48.14%; height:10.61%;" onclick="confirmarAsistencia()" aria-label="Confirmar asistencia"></button>
+<div class="info-card fade-section">
+  <img class="info-corner tl" src="corner_tl.png" alt="">
+  <img class="info-corner tr" src="corner_tl.png" alt="">
+  <img class="info-corner bl" src="corner_tl.png" alt="">
+  <img class="info-corner br" src="corner_tl.png" alt="">
+  <img class="info-icon" src="icon_dresscode.png" alt="">
+  <div class="info-title">DRESS CODE</div>
+  <div class="info-photo-single">
+    <a href="dresscode.png" target="_blank"><img src="dresscode.png" alt="Dress code"></a>
+  </div>
+</div>
 
+<div class="info-card fade-section">
+  <img class="info-corner tl" src="corner_tl.png" alt="">
+  <img class="info-corner tr" src="corner_tl.png" alt="">
+  <img class="info-corner bl" src="corner_tl.png" alt="">
+  <img class="info-corner br" src="corner_tl.png" alt="">
+  <img class="info-icon" src="icon_itinerario.png" alt="">
+  <div class="info-title">ITINERARIO Y UBICACIÓN</div>
+  <div class="itinerario-inline">
+    <button class="maps-btn ceremonia" onclick="openMaps('Parroquia de San José, Av. 2 Oriente #408, Centro, Puebla, Pue. 72000')" aria-label="Ver ubicación de la ceremonia en Google Maps"></button>
+    <button class="maps-btn recepcion" onclick="openMaps('Salón Quinta Real, Blvd. Atlixcáyotl #5500, Reserva Territorial Atlixcáyotl, Puebla, Pue. 72810')" aria-label="Ver ubicación de la recepción en Google Maps"></button>
+  </div>
+</div>
+
+<div class="info-card fade-section">
+  <img class="info-corner tl" src="corner_tl.png" alt="">
+  <img class="info-corner tr" src="corner_tl.png" alt="">
+  <img class="info-corner bl" src="corner_tl.png" alt="">
+  <img class="info-corner br" src="corner_tl.png" alt="">
+  <img class="info-icon" src="gift_icon_regalos.png" alt="Regalo">
+  <div class="info-title">MESA DE REGALOS</div>
+  <p class="info-text">Tu presencia es el regalo más bonito, pero si deseas obsequiarme algo, puede ser en efectivo en la lluvia de sobres que tengo preparada para el día del evento.</p>
+  <img class="info-bottom-orn" src="bottom_medallion.png" alt="">
+</div>
+
+<div class="info-card fade-section">
+  <img class="info-corner tl" src="corner_tl.png" alt="">
+  <img class="info-corner tr" src="corner_tl.png" alt="">
+  <img class="info-corner bl" src="corner_tl.png" alt="">
+  <img class="info-corner br" src="corner_tl.png" alt="">
+  <div class="info-title">CONFIRMAR ASISTENCIA</div>
+  <p class="info-text">Nos encantaría contar contigo. Confirma tu asistencia dándole click al botón:</p>
+  <button class="whatsapp-inline-btn" onclick="confirmarAsistencia()">📩 CONFIRMAR POR WHATSAPP</button>
 </div>
 
 <!-- ================= SECTION 3 (new, appended below section 2 — nothing
@@ -778,50 +725,6 @@
 
 <!-- Fixed play/pause control, visible and clickable from anywhere on the page -->
 <button id="floatingAudioBtn" class="floating-audio-btn" onclick="toggleGlobalAudio()" aria-label="Reproducir o pausar música">▶</button>
-
-<!-- Photo gallery lightbox (opened from the GALERÍA button) -->
-<div class="lightbox-overlay" id="lightboxOverlay">
-  <button class="lightbox-close" onclick="closeGallery()" aria-label="Cerrar galería">✕</button>
-
-  <button class="lightbox-nav prev" onclick="galleryPrev()" aria-label="Foto anterior">‹</button>
-  <button class="lightbox-nav next" onclick="galleryNext()" aria-label="Foto siguiente">›</button>
-
-  <div class="lightbox-main">
-    <img id="lightboxImage" src="" alt="Foto de Karla Romina">
-    <div class="lightbox-counter" id="lightboxCounter">1 / 5</div>
-  </div>
-
-  <div class="lightbox-thumbs-row">
-    <button class="lightbox-thumb-nav" onclick="scrollThumbs(-1)" aria-label="Ver miniaturas anteriores">‹</button>
-    <div class="lightbox-thumbs" id="lightboxThumbs"><img src="galeria1.jpg" alt="Miniatura 1"><img src="galeria2.jpg" alt="Miniatura 2"><img src="galeria3.jpg" alt="Miniatura 3"><img src="galeria4.jpg" alt="Miniatura 4"><img src="galeria5.jpg" alt="Miniatura 5"></div>
-    <button class="lightbox-thumb-nav" onclick="scrollThumbs(1)" aria-label="Ver más miniaturas">›</button>
-  </div>
-</div>
-
-<!-- Itinerario modal (opened from the ITINERARIO button): dedicated card with
-     two invisible "VER UBICACIÓN" overlays linking straight to Google Maps -->
-<div class="itinerario-overlay" id="itinerarioOverlay">
-  <div class="itinerario-card">
-    <button class="lightbox-close" onclick="closeItinerario()" aria-label="Cerrar itinerario">✕</button>
-    <button class="maps-btn ceremonia" onclick="openMaps('Parroquia de San José, Av. 2 Oriente #408, Centro, Puebla, Pue. 72000')" aria-label="Ver ubicación de la ceremonia en Google Maps"></button>
-    <button class="maps-btn recepcion" onclick="openMaps('Salón Quinta Real, Blvd. Atlixcáyotl #5500, Reserva Territorial Atlixcáyotl, Puebla, Pue. 72810')" aria-label="Ver ubicación de la recepción en Google Maps"></button>
-  </div>
-</div>
-
-<!-- Mesa de regalos modal -->
-<div class="regalos-overlay" id="regalosOverlay">
-  <div class="regalos-card">
-    <img class="regalos-corner tl" src="corner_tl.png" alt="">
-    <img class="regalos-corner tr" src="corner_tl.png" alt="">
-    <img class="regalos-corner bl" src="corner_tl.png" alt="">
-    <img class="regalos-corner br" src="corner_tl.png" alt="">
-    <button class="lightbox-close" onclick="closeRegalos()" aria-label="Cerrar mesa de regalos" style="position:absolute; top:14px; right:14px;">✕</button>
-    <img class="regalos-icon" src="gift_icon_regalos.png" alt="Regalo">
-    <div class="regalos-title">MESA DE REGALOS</div>
-    <p class="regalos-text">Tu presencia es el regalo más bonito, pero si deseas obsequiarme algo, puede ser en efectivo en la lluvia de sobres que tengo preparada para el día del evento.</p>
-    <img class="regalos-bottom-orn" src="bottom_medallion.png" alt="">
-  </div>
-</div>
 
 <script>
   // Countdown to event date
@@ -933,92 +836,8 @@
   }, { threshold: 0.15 });
   fadeSections.forEach((section) => fadeObserver.observe(section));
 
-  // ---- photo gallery lightbox ----
-  const galleryImages = [
-    'galeria1.jpg',
-    'galeria2.jpg',
-    'galeria3.jpg',
-    'galeria4.jpg',
-    'galeria5.jpg'
-  ];
-  const padresImages = [
-    'padres1.jpg'
-  ];
-  const padrinosImages = [
-    'padrinos1.jpg'
-  ];
-  const dressCodeImages = [
-    'dresscode.png'
-  ];
-  let currentImages = galleryImages;
-  let galleryIndex = 0;
-
-  const lightboxOverlay = document.getElementById('lightboxOverlay');
-  const lightboxImage = document.getElementById('lightboxImage');
-  const lightboxCounter = document.getElementById('lightboxCounter');
-  const lightboxThumbs = document.getElementById('lightboxThumbs');
-
-  // (re)build the thumbnail strip for whichever image set is currently open
-  function buildThumbs() {
-    lightboxThumbs.innerHTML = '';
-    currentImages.forEach((src, i) => {
-      const thumb = document.createElement('img');
-      thumb.src = src;
-      thumb.alt = 'Miniatura ' + (i + 1);
-      thumb.addEventListener('click', () => showGalleryImage(i));
-      lightboxThumbs.appendChild(thumb);
-    });
-  }
-  buildThumbs();
-
-  function showGalleryImage(i) {
-    galleryIndex = (i + currentImages.length) % currentImages.length;
-    lightboxImage.src = currentImages[galleryIndex];
-    lightboxCounter.textContent = (galleryIndex + 1) + ' / ' + currentImages.length;
-    [...lightboxThumbs.children].forEach((t, idx) => {
-      t.classList.toggle('active', idx === galleryIndex);
-    });
-    const activeThumb = lightboxThumbs.children[galleryIndex];
-    if (activeThumb) activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-  }
-
-  function openLightbox(images) {
-    currentImages = images;
-    buildThumbs();
-    lightboxOverlay.classList.toggle('single-photo', images.length <= 1);
-    showGalleryImage(0);
-    lightboxOverlay.classList.add('is-open');
-  }
-
-  function openGallery() {
-    openLightbox(galleryImages);
-  }
-
-  function openPadres() {
-    openLightbox(padresImages);
-  }
-
-  function openPadrinos() {
-    openLightbox(padrinosImages);
-  }
-
-  function openDressCode() {
-    openLightbox(dressCodeImages);
-  }
-
-  // Itinerario: dedicated modal (not the generic photo lightbox) so the
-  // "VER UBICACIÓN" buttons baked into the artwork can be real clickable
-  // links to Google Maps.
-  const itinerarioOverlay = document.getElementById('itinerarioOverlay');
-
-  function openItinerario() {
-    itinerarioOverlay.classList.add('is-open');
-  }
-
-  function closeItinerario() {
-    itinerarioOverlay.classList.remove('is-open');
-  }
-
+  // Opens a Google Maps search for the given address (used by the
+  // "VER UBICACIÓN" buttons on the itinerario card)
   function openMaps(address) {
     window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(address), '_blank');
   }
@@ -1029,58 +848,6 @@
     const text = 'Hola, confirmo mi asistencia a los XV de Romina';
     window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(text), '_blank');
   }
-
-  itinerarioOverlay.addEventListener('click', (e) => {
-    if (e.target === itinerarioOverlay) closeItinerario();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && itinerarioOverlay.classList.contains('is-open')) closeItinerario();
-  });
-
-  // Mesa de regalos modal
-  const regalosOverlay = document.getElementById('regalosOverlay');
-
-  function openRegalos() {
-    regalosOverlay.classList.add('is-open');
-  }
-
-  function closeRegalos() {
-    regalosOverlay.classList.remove('is-open');
-  }
-
-  regalosOverlay.addEventListener('click', (e) => {
-    if (e.target === regalosOverlay) closeRegalos();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && regalosOverlay.classList.contains('is-open')) closeRegalos();
-  });
-
-  function closeGallery() {
-    lightboxOverlay.classList.remove('is-open');
-  }
-
-  function galleryNext() {
-    showGalleryImage(galleryIndex + 1);
-  }
-
-  function galleryPrev() {
-    showGalleryImage(galleryIndex - 1);
-  }
-
-  function scrollThumbs(dir) {
-    lightboxThumbs.scrollBy({ left: dir * 200, behavior: 'smooth' });
-  }
-
-  // close on background click, and arrow-key navigation while open
-  lightboxOverlay.addEventListener('click', (e) => {
-    if (e.target === lightboxOverlay) closeGallery();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (!lightboxOverlay.classList.contains('is-open')) return;
-    if (e.key === 'Escape') closeGallery();
-    if (e.key === 'ArrowRight') galleryNext();
-    if (e.key === 'ArrowLeft') galleryPrev();
-  });
 </script>
 
 </body></html>
